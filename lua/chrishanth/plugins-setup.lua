@@ -33,6 +33,10 @@ return packer.startup(function(use)
 	-- use("bluz71/vim-nightfly-colors")
 	use("EdenEast/nightfox.nvim")
 
+	-- use("ellisonleao/gruvbox.nvim")
+	-- use("folke/tokyonight.nvim")
+	-- use("Shatur/neovim-ayu")
+
 	-- tmux & split window navigation
 	use("christoomey/vim-tmux-navigator")
 
@@ -96,6 +100,9 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
+	-- auto save
+	use("Pocco81/auto-save.nvim")
+
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
@@ -108,6 +115,7 @@ return packer.startup(function(use)
 	})
 
 	use("ThePrimeagen/vim-be-good")
+	use("ThePrimeagen/harpoon")
 
 	use({
 		"kdheepak/tabline.nvim",

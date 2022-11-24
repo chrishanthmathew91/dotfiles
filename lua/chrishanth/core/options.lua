@@ -1,5 +1,14 @@
 local opt = vim.opt -- for conciseness
 
+-- general
+opt.cmdheight = 1
+opt.showtabline = 0
+opt.pumheight = 10
+opt.showmode = false
+opt.laststatus = 3
+opt.ruler = false
+opt.swapfile = false
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -19,7 +28,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- cursor line
--- opt.cursorline = true
+opt.cursorline = true
 
 -- appearance
 opt.termguicolors = true
@@ -37,3 +46,5 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+vim.opt.guicursor =
+	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
