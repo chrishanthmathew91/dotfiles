@@ -78,18 +78,18 @@ lualine.setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = {
-		lualine_c = {
-			{
-				"filename",
-				path = 1,
-			},
-		},
-		lualine_b = {},
-		lualine_a = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {},
-	},
+	-- tabline = {
+	-- 	lualine_c = {
+	-- 		{
+	-- 			"filename",
+	-- 			path = 1,
+	-- 		},
+	-- 	},
+	-- lualine_b = {},
+	-- lualine_a = {},
+	-- lualine_x = {},
+	-- lualine_y = {},
+	-- lualine_z = {},
+	-- },
 	extensions = {},
 })

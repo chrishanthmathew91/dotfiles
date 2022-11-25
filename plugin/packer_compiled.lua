@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
     url = "https://github.com/Pocco81/auto-save.nvim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -221,11 +226,6 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["tabline.nvim"] = {
-    loaded = true,
-    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/tabline.nvim",
-    url = "https://github.com/kdheepak/tabline.nvim"
-  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -246,6 +246,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
+  ["vim-bbye"] = {
+    loaded = true,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/vim-bbye",
+    url = "https://github.com/moll/vim-bbye"
   },
   ["vim-be-good"] = {
     loaded = true,

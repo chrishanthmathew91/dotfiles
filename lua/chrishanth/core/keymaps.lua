@@ -32,6 +32,11 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>")
 
+-- Navigate buffers
+keymap.set("n", "<S-l>", ":bnext<CR>")
+keymap.set("n", "<S-h>", ":bprevious<CR>")
+keymap.set("n", "<S-x>", ":bdelete<CR>")
+
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
