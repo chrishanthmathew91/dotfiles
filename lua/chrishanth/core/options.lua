@@ -2,7 +2,7 @@ local opt = vim.opt -- for conciseness
 
 -- general
 opt.cmdheight = 1
-opt.showtabline = 0
+-- opt.showtabline = 0
 opt.pumheight = 10
 opt.showmode = false
 opt.laststatus = 3
