@@ -9,6 +9,7 @@ keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 keymap.set("n", "x", '"_x')
+keymap.set("n", "<leader>n", ":wa<CR>")
 
 keymap.set("n", "<leader>+", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")

@@ -31,7 +31,11 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- use("bluz71/vim-nightfly-colors")
-	use("EdenEast/nightfox.nvim")
+	-- use("EdenEast/nightfox.nvim")
+	use("navarasu/onedark.nvim")
+	use("norcalli/nvim-colorizer.lua")
+	use("stevearc/dressing.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- tmux & split window navigation
 	use("christoomey/vim-tmux-navigator")
@@ -61,6 +65,7 @@ return packer.startup(function(use)
 	-- fuzzy finding
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+	use({ "renerocksai/telekasten.nvim", requires = { "nvim-telescope/telescope.nvim" } })
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp")
@@ -82,6 +87,17 @@ return packer.startup(function(use)
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+	use("ray-x/lsp_signature.nvim")
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
+	use({ "windwp/nvim-spectre", requires = "nvim-lua/plenary.nvim" })
+	use("abecodes/tabout.nvim")
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
@@ -94,7 +110,11 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
+	use("nvim-treesitter/nvim-treesitter-context")
+	use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
+	use("folke/twilight.nvim")
 	use("p00f/nvim-ts-rainbow")
+	use("ggandor/leap.nvim")
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
@@ -105,6 +125,7 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	use({
 		"akinsho/toggleterm.nvim",
@@ -113,9 +134,8 @@ return packer.startup(function(use)
 			require("toggleterm").setup()
 		end,
 	})
-
-	use("ThePrimeagen/vim-be-good")
-	use("ThePrimeagen/harpoon")
+	use("rcarriga/nvim-notify")
+	use("gelguy/wilder.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()

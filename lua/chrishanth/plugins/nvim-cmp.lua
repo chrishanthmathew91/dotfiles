@@ -48,4 +48,17 @@ cmp.setup({
 			ellipsis_char = "...",
 		}),
 	},
+	window = {
+		documentation = {
+			border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+		},
+		completion = {
+			border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+		},
+	},
+	experimental = {
+		ghost_text = true,
+	},
 })

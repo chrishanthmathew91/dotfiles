@@ -1,17 +1,23 @@
 local opt = vim.opt -- for conciseness
 
 -- general
+opt.backup = false
 opt.cmdheight = 1
--- opt.showtabline = 0
+opt.completeopt = { "menuone", "noselect" }
+opt.conceallevel = 0
+opt.showtabline = 0
+opt.showmode = false
 opt.pumheight = 10
 opt.showmode = false
 opt.laststatus = 3
 opt.ruler = false
 opt.swapfile = false
+opt.hlsearch = true
 
 -- line numbers
 opt.relativenumber = true
 opt.number = true
+opt.laststatus = 3
 
 -- tabs & indentation
 opt.tabstop = 2
@@ -19,6 +25,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
+opt.smartcase = true
 
 -- line wrapping
 opt.wrap = false
@@ -28,7 +35,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- cursor line
-opt.cursorline = true
+-- opt.cursorline = true
 
 -- appearance
 opt.termguicolors = true
