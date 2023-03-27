@@ -59,8 +59,8 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- bufferline
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
+	-- use("akinsho/bufferline.nvim")
+	-- use("moll/vim-bbye")
 
 	-- fuzzy finding
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
@@ -121,7 +121,7 @@ return packer.startup(function(use)
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
 	-- auto save
-	use("Pocco81/auto-save.nvim")
+	-- use("Pocco81/auto-save.nvim")
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
