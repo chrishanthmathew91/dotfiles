@@ -109,6 +109,15 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["crates.nvim"] = {
+    after_files = { "/Users/chrishanth/.local/share/nvim/site/pack/packer/opt/crates.nvim/after/plugin/cmp_crates.lua" },
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vcrates\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/opt/crates.nvim",
+    url = "https://github.com/saecki/crates.nvim"
+  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -138,11 +147,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/leap.nvim",
     url = "https://github.com/ggandor/leap.nvim"
-  },
-  ["lsp_lines.nvim"] = {
-    loaded = true,
-    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
-    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -199,6 +203,11 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -246,11 +255,6 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -266,15 +270,25 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
     url = "https://github.com/ThePrimeagen/refactoring.nvim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/opt/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  ["rust.vim"] = {
+    config = { "\27LJ\2\n2\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\21rustfmt_autosave\6g\bvim\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/opt/rust.vim",
+    url = "https://github.com/rust-lang/rust.vim"
+  },
   ["tabout.nvim"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/tabout.nvim",
     url = "https://github.com/abecodes/tabout.nvim"
-  },
-  ["telekasten.nvim"] = {
-    loaded = true,
-    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/telekasten.nvim",
-    url = "https://github.com/renerocksai/telekasten.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -292,20 +306,25 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["trouble.nvim"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
-  ["twilight.nvim"] = {
-    loaded = true,
-    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/twilight.nvim",
-    url = "https://github.com/folke/twilight.nvim"
-  },
   ["typescript.nvim"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
   },
   ["vim-maximizer"] = {
     loaded = true,
@@ -339,6 +358,19 @@ time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
 vim.cmd [[ packadd nvim-ts-autotag ]]
 time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType toml ++once lua require("packer.load")({'crates.nvim'}, { ft = "toml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'crates.nvim', 'rust-tools.nvim', 'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/chrishanth/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], true)
+vim.cmd [[source /Users/chrishanth/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]]
+time([[Sourcing ftdetect script at: /Users/chrishanth/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -32,7 +32,8 @@ return packer.startup(function(use)
 
 	-- use("bluz71/vim-nightfly-colors")
 	-- use("EdenEast/nightfox.nvim")
-	use("navarasu/onedark.nvim")
+	-- use("navarasu/onedark.nvim")
+	use("folke/tokyonight.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use("stevearc/dressing.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
@@ -65,7 +66,6 @@ return packer.startup(function(use)
 	-- fuzzy finding
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
-	use({ "renerocksai/telekasten.nvim", requires = { "nvim-telescope/telescope.nvim" } })
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp")
@@ -87,7 +87,7 @@ return packer.startup(function(use)
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+	-- use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 	use("ray-x/lsp_signature.nvim")
 	use({
 		"ThePrimeagen/refactoring.nvim",
@@ -112,7 +112,6 @@ return packer.startup(function(use)
 	})
 	use("nvim-treesitter/nvim-treesitter-context")
 	use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
-	use("folke/twilight.nvim")
 	use("p00f/nvim-ts-rainbow")
 	use("ggandor/leap.nvim")
 
@@ -136,6 +135,27 @@ return packer.startup(function(use)
 	})
 	use("rcarriga/nvim-notify")
 	use("gelguy/wilder.nvim")
+	use("mbbill/undotree")
+
+	-- rust
+	use({
+		"rust-lang/rust.vim",
+		ft = "rust",
+		config = function()
+			vim.g.rustfmt_autosave = 1
+		end,
+	})
+	use({ "simrat39/rust-tools.nvim", ft = "rust" })
+	use("mfussenegger/nvim-dap")
+	use({
+		"saecki/crates.nvim",
+		ft = { "rust", "toml" },
+		tag = "v0.3.0",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("crates").setup()
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
