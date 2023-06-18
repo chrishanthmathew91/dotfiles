@@ -12,7 +12,8 @@ opt.showmode = false
 opt.laststatus = 3
 opt.ruler = false
 opt.swapfile = false
-opt.hlsearch = true
+opt.hlsearch = false
+opt.incsearch = true
 
 -- line numbers
 opt.relativenumber = true
@@ -41,6 +42,7 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+opt.scrolloff = 8
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -53,5 +55,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+opt.updatetime = 50
+opt.colorcolumn = "80"
 vim.opt.guicursor =
 	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
