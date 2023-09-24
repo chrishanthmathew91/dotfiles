@@ -37,9 +37,9 @@ local conditions = {
 local config = {
 	options = {
 		-- Disable sections and component separators
+		theme = "catppuccin",
 		component_separators = "",
 		section_separators = "",
-		theme = "tokyonight",
 		-- theme = {
 		--     -- We are going to use lualine_c an lualine_x as left and
 		--     -- right section. Both are highlighted by c theme .  So we
