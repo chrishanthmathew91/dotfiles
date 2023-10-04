@@ -123,6 +123,14 @@ _G.packer_plugins = {
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/opt/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
   },
+  ["dashboard-nvim"] = {
+    config = { "\27LJ\2\n�\3\0\0\6\0\19\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\a\0005\4\6\0=\4\b\0035\4\t\0=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0034\4\3\0005\5\15\0>\5\1\0045\5\16\0>\5\2\4=\4\17\3=\3\18\2B\0\2\1K\0\1\0\vconfig\rshortcut\1\0\4\tdesc\18  .. Mason\ngroup\14@property\vaction\nMason\bkey\6m\1\0\4\tdesc\20  .. Plugins\ngroup\14@property\vaction\tLazy\bkey\6p\bmru\1\0\1\nlimit\3\b\fproject\1\0\2\nlimit\3\b\venable\2\rpackages\1\0\1\venable\2\16week_header\1\0\0\1\0\1\venable\2\thide\1\0\3\ftabline\1\15statusline\1\vwinbar\1\1\0\4\18shortcut_type\vletter\17disable_move\1\ntheme\tdoom\23change_to_vcs_root\1\nsetup\14dashboard\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -258,7 +266,7 @@ _G.packer_plugins = {
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/chrishanth/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -362,9 +370,13 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'crates.nvim', 'rust.vim', 'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
 vim.cmd [[au FileType toml ++once lua require("packer.load")({'crates.nvim'}, { ft = "toml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim', 'rust-tools.nvim', 'crates.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
 time([[Sourcing ftdetect script at: /Users/chrishanth/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], true)
