@@ -37,7 +37,7 @@ local conditions = {
 local config = {
 	options = {
 		-- Disable sections and component separators
-		theme = "catppuccin",
+		theme = "rose-pine",
 		component_separators = "",
 		section_separators = "",
 		-- theme = {
@@ -90,7 +90,7 @@ ins_left({
 ins_left({
 	-- mode component
 	function()
-		return " "
+		return ""
 	end,
 	color = function()
 		-- auto change color according to neovims mode
@@ -131,7 +131,7 @@ ins_left({
 	"filename",
 	path = 1,
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.magenta, gui = "" },
+	color = { fg = colors.yellow, gui = "" },
 })
 
 ins_left({ "location" })
