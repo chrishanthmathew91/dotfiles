@@ -1,9 +1,9 @@
-local status_ok, rose_pine = pcall(require, "rose-pine")
-if not status_ok then
-	return
-end
-
-rose_pine.setup({
+return {
+  "rose-pine/neovim",
+  name = "rose-pine",
+  priority = 1000,
+  config = function()
+    require("rose-pine").setup({
 	--- @usage 'auto'|'main'|'moon'|'dawn'
 	variant = "auto",
 	--- @usage 'main'|'moon'|'dawn'
@@ -57,8 +57,10 @@ rose_pine.setup({
 		Search = { bg = "gold", inherit = false },
 	},
 })
-
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 vim.cmd([[colorscheme rose-pine]])
+  end
+}
+
