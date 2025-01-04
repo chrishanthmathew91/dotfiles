@@ -31,20 +31,23 @@ return {
 				"html",
 				"cssls",
 				"tailwindcss",
+				"svelte",
 				"lua_ls",
 				"graphql",
 				"emmet_ls",
-				"rust_analyzer",
+				"prismals",
+				"pyright",
 			},
-			-- auto-install configured servers (with lspconfig)
-			automatic_installation = true, -- not the same as ensure_installed
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				"eslint_d", -- js linter
+				"isort", -- python formatter
+				"black", -- python formatter
+				"pylint",
+				"eslint_d",
 			},
 		})
 	end,

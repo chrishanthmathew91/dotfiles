@@ -38,7 +38,7 @@ local colors = {
 		local config = {
 			options = {
 				-- Disable sections and component separators
-				theme = "rose-pine",
+				theme = "onedark",
 				component_separators = "",
 				section_separators = "",
 				-- theme = {

@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "chrishanth.plugins" }, { import = "chrishanth.plugins.lsp" } }, {
 	install = {
-		colorscheme = { "rose-pine" },
+		colorscheme = { "onedark" },
 	},
 	checker = {
 		enabled = true,

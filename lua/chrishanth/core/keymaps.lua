@@ -37,3 +37,5 @@ keymap.set("v", "<leader>y", '"+y')
 keymap.set("n", "<leader>Y", '"+Y')
 keymap.set("n", "<leader>d", '"+d')
 keymap.set("v", "<leader>d", '"+d')
+
+keymap.set("n", "<leader>r", ":set relativenumber!<CR>")
