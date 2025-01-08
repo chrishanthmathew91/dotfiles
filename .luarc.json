@@ -46,6 +46,7 @@
         "/Users/chrishanth/.local/share/nvim/lazy/lspkind.nvim/lua",
         "/Users/chrishanth/.local/share/nvim/lazy/todo-comments.nvim/lua",
         "/Users/chrishanth/.config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }
