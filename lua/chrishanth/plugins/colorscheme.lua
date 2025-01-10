@@ -5,19 +5,29 @@ return {
 	config = function()
 		require("rose-pine").setup({
 			--- @usage 'auto'|'main'|'moon'|'dawn'
-			variant = "auto",
+			variant = "moon",
 			--- @usage 'main'|'moon'|'dawn'
-			dark_variant = "main",
+			dark_variant = "moon",
 			bold_vert_split = false,
 			dim_nc_background = false,
 			disable_background = true,
 			disable_float_background = true,
-			disable_italics = true,
+			disable_italics = false,
+
+      enable = {
+        terminal = true,
+        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+        migrations = true, -- Handle deprecated options automatically
+      },
+
+      styles = {
+        bold = true,
+        italic = true,
+        transparency = true,
+      },
 
 			--- @usage string hex value or named color from rosepinetheme.com/palette
 			groups = {
-				background = "base",
-				background_nc = "_experimental_nc",
 				panel = "surface",
 				panel_nc = "base",
 				border = "highlight_med",
