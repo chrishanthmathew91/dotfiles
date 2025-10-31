@@ -56,6 +56,7 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 opt.updatetime = 50
+opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- opt.colorcolumn = "80"
 -- vim.opt.guicursor =
 -- 	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"

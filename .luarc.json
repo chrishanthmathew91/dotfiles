@@ -47,5 +47,6 @@
         "/Users/chrishanth/.local/share/nvim/lazy/todo-comments.nvim/lua",
         "/Users/chrishanth/.config/nvim/lua",
         "${3rd}/luv/library"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }
