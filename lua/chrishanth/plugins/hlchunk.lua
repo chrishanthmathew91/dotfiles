@@ -1,28 +1,31 @@
 return {
 	"shellRaining/hlchunk.nvim",
 	event = { "BufReadPost", "BufNewFile" },
-	opts = {
-		indent = {
-			enable = true,
-			chars = { "│" },
-			style = {
-				"#E06C75",
-				"#E5C07B",
-				"#61AFEF",
-				"#D19A66",
-				"#98C379",
-				"#C678DD",
-				"#56B6C2",
+	config = function()
+		local C = require("catppuccin.palettes").get_palette("mocha")
+		require("hlchunk").setup({
+			indent = {
+				enable = true,
+				chars = { "│" },
+				style = {
+					C.red,
+					C.yellow,
+					C.blue,
+					C.peach,
+					C.green,
+					C.mauve,
+					C.teal,
+				},
 			},
-		},
-		blank = { enable = false }, -- dots for blank lines if you want
-		chunk = {
-			enable = true, -- chunky braces/if blocks guides
-			style = { "#5C6370" },
-			duration = 0,
-		},
-		exclude_filetypes = { "help", "alpha", "neo-tree", "lazy" },
-	},
+			blank = { enable = false },
+			chunk = {
+				enable = true,
+				style = { C.overlay0 },
+				duration = 0,
+			},
+			exclude_filetypes = { "help", "alpha", "neo-tree", "lazy" },
+		})
+	end,
 	init = function()
 		vim.opt.termguicolors = true
 	end,

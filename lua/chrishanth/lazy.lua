@@ -20,13 +20,13 @@ require("lazy").setup({
 		{ import = "chrishanth.plugins.lsp" },
 	},
 	install = {
-		colorscheme = { "onedark" },
+		colorscheme = { "catppuccin" },
 	},
 	checker = {
 		enabled = true,
-		notify = false,
+		notify = true, -- Enable notifications for updates
 	},
 	change_detection = {
-		notify = false,
+		notify = true, -- Enable notifications for changes
 	},
 })

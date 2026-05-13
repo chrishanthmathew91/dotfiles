@@ -1,72 +1,138 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
 	config = function()
 		local lualine = require("lualine")
-		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+		local stl_escape = require("lualine.utils.utils").stl_escape
 
-		local colors = {
-			blue = "#65D1FF",
-			green = "#3EFFDC",
-			violet = "#FF61EF",
-			yellow = "#FFDA7B",
-			red = "#FF4A4A",
-			fg = "#c3ccdc",
-			bg = "#112638",
-			inactive_bg = "#2c3043",
-		}
+		---@param path string absolute file path
+		---@return string|nil
+		local function find_git_root(path)
+			local dir = vim.fn.fnamemodify(path, ":h")
+			local git_dir = vim.fn.finddir(".git", dir .. ";")
+			if git_dir ~= "" then
+				return vim.fn.fnamemodify(git_dir, ":h")
+			end
+			local out = vim.trim(vim.fn.system({ "git", "-C", dir, "rev-parse", "--show-toplevel" }))
+			if vim.v.shell_error == 0 and out ~= "" then
+				return out
+			end
+			return nil
+		end
 
-		local my_lualine_theme = {
-			normal = {
-				a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-				b = { bg = colors.bg, fg = colors.fg },
-				c = { bg = colors.bg, fg = colors.fg },
-			},
-			insert = {
-				a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-				b = { bg = colors.bg, fg = colors.fg },
-				c = { bg = colors.bg, fg = colors.fg },
-			},
-			visual = {
-				a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-				b = { bg = colors.bg, fg = colors.fg },
-				c = { bg = colors.bg, fg = colors.fg },
-			},
-			command = {
-				a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-				b = { bg = colors.bg, fg = colors.fg },
-				c = { bg = colors.bg, fg = colors.fg },
-			},
-			replace = {
-				a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-				b = { bg = colors.bg, fg = colors.fg },
-				c = { bg = colors.bg, fg = colors.fg },
-			},
-			inactive = {
-				a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-				b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-				c = { bg = colors.inactive_bg, fg = colors.semilightgray },
-			},
-		}
+		---@param full string
+		---@param root string
+		---@return string|nil relative path inside root, or nil if full is not under root
+		local function path_relative_to(full, root)
+			full = full:gsub("\\", "/"):gsub("/$", "")
+			root = root:gsub("\\", "/"):gsub("/$", "")
+			if full == root then
+				return ""
+			end
+			local prefix = root .. "/"
+			if vim.startswith(full, prefix) then
+				return full:sub(#prefix + 1)
+			end
+			return nil
+		end
+
+		--- Path from repo root when inside a git project; else path relative to cwd (`:p:~:.`).
+		local function project_relative_path()
+			local bufname = vim.api.nvim_buf_get_name(0)
+			if bufname == "" then
+				return "[No Name]"
+			end
+			if bufname:match("^%a+://") then
+				return stl_escape(bufname)
+			end
+			local full = vim.fn.fnamemodify(bufname, ":p")
+			if vim.fs and vim.fs.normalize then
+				full = vim.fs.normalize(full)
+			end
+			local root = find_git_root(full)
+			local display
+			if root then
+				if vim.fs and vim.fs.normalize then
+					root = vim.fs.normalize(root)
+				end
+				local rel = path_relative_to(full, root)
+				display = rel ~= nil and rel or vim.fn.expand("%:~:.")
+			else
+				display = vim.fn.expand("%:~:.")
+			end
+			display = stl_escape(display)
+			local symbols = {}
+			if vim.bo.modified then
+				table.insert(symbols, "󰏫 ")
+			end
+			if vim.bo.modifiable == false or vim.bo.readonly == true then
+				table.insert(symbols, "󰈡 ")
+			end
+			return display .. (#symbols > 0 and " " .. table.concat(symbols, "") or "")
+		end
+
+		-- Fun function to get mode icon
+		local function get_mode_icon()
+			local mode = vim.fn.mode()
+			local icons = {
+				n = "󰋜", -- Normal
+				i = "󰏫", -- Insert
+				v = "󰈈", -- Visual
+				V = "󰈈", -- Visual Line
+				["\22"] = "󰈈", -- Visual Block
+				c = "󰆍", -- Command
+				r = "󰀘", -- Replace
+				s = "󰆉", -- Select
+				t = "󰆍", -- Terminal
+			}
+			return icons[mode] or "󰋜"
+		end
 
 		-- configure lualine with modified theme
 		lualine.setup({
 			options = {
-				theme = my_lualine_theme,
+				-- catppuccin provides a lualine theme module named "catppuccin-nvim"
+				theme = "catppuccin-nvim",
+				component_separators = { left = "│", right = "│" },
+				section_separators = { left = "", right = "" },
+				icons_enabled = true,
+				always_divide_middle = true,
+				globalstatus = false,
 			},
 			sections = {
-				lualine_c = {
-					{ "filename", path = 1, file_status = true }, -- ← relative to cwd
-				},
-				lualine_x = {
+				lualine_a = {
 					{
-						lazy_status.updates,
-						cond = lazy_status.has_updates,
-						color = { fg = "#ff9e64" },
+						function()
+							local mode = vim.fn.mode()
+							local mode_map = {
+								n = "N",
+								i = "I",
+								v = "V",
+								V = "V",
+								["\22"] = "V",
+								c = "C",
+								r = "R",
+								s = "S",
+								t = "T",
+							}
+							return get_mode_icon() .. " " .. (mode_map[mode] or mode:sub(1, 1))
+						end,
+						icons_enabled = true,
 					},
-					{ "encoding" },
-					{ "fileformat", symbols = { unix = "" } },
-					{ "filetype" },
+				},
+				lualine_b = {
+					{ "branch", icon = "󰊢" },
+				},
+				lualine_c = {
+					{ project_relative_path },
+				},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
+			inactive_sections = {
+				lualine_c = {
+					{ project_relative_path },
 				},
 			},
 		})

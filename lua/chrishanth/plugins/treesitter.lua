@@ -5,8 +5,20 @@ return {
 	-- Lazy will call: require("nvim-treesitter.configs").setup(opts)
 	main = "nvim-treesitter.configs",
 	opts = {
-		highlight = { enable = true },
-		indent = { enable = true },
+		highlight = {
+			enable = true,
+			disable = function(_, buf)
+				local ok, n = pcall(vim.api.nvim_buf_line_count, buf)
+				return ok and n > 10000
+			end,
+		},
+		indent = {
+			enable = true,
+			disable = function(_, buf)
+				local ok, n = pcall(vim.api.nvim_buf_line_count, buf)
+				return ok and n > 10000
+			end,
+		},
 
 		ensure_installed = {
 			"json",

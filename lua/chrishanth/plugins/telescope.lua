@@ -24,7 +24,9 @@ return {
 
 		telescope.setup({
 			defaults = {
-				path_display = { filename_first = { reverse_directories = false } },
+				-- Match vim.opt.winblend / floating UI (default Telescope winblend is 0 = solid)
+				winblend = 10,
+				path_display = { "absolute", "truncate", truncate = 6 },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result

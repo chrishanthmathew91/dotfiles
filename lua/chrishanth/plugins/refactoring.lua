@@ -1,7 +1,9 @@
 return {
 	"ThePrimeagen/refactoring.nvim",
 	dependencies = {
+		"lewis6991/async.nvim",
 		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope.nvim",
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
@@ -29,7 +31,9 @@ return {
 			printf_statements = {},
 			print_var_statements = {},
 		})
-		require("telescope").load_extension("refactoring")
+		pcall(function()
+			require("telescope").load_extension("refactoring")
+		end)
 
 		vim.api.nvim_set_keymap(
 			"v",
