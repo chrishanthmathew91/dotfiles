@@ -39,3 +39,7 @@ keymap.set("n", "<leader>d", '"+d')
 keymap.set("v", "<leader>d", '"+d')
 
 keymap.set("n", "<leader>r", ":set relativenumber!<CR>")
+
+-- Quick help access
+keymap.set("n", "<F1>", "<cmd>Telescope keymaps<CR>", { desc = "Show all keybindings" })
+keymap.set("n", "<leader><F1>", "<cmd>help<CR>", { desc = "Open Vim help" })
